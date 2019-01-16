@@ -300,11 +300,12 @@ def problem1b(strings):
            FOR HELP if this problem's specification is not clear to you.
      """
 
-    duh = []
     for k in range(len(strings)):
-        if len(strings) == is_prime(len(strings)):
-            duh = duh + strings[k]
-        return duh
+        if is_prime(len(strings[k])) == True:
+            duh = strings
+            return duh
+    return []
+
 
     ###########################################################################
     # TODO: 4. Implement and test this function.
