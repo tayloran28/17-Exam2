@@ -13,7 +13,7 @@ import testing_helper
 
 
 ###############################################################################
-# TODO: 2.  READ the   Point   class defined below.
+# DONE: 2.  READ the   Point   class defined below.
 #  Note especially its methods:
 #    clone
 #    distance_from
@@ -89,7 +89,7 @@ def main():
 
     # run_test_init()
     # run_test_area()
-    # run_test_bigger_triangle()
+    run_test_bigger_triangle()
     # run_test_shrink_or_expand()
     # run_test_return_doubled_triangle()
     # run_test_get_largest_area()
@@ -137,8 +137,12 @@ class Triangle(object):
           :type b: Point
           :type c: Point
         """
+        self.a = a.clone()
+        self.b = b.clone()
+        self.c = c.clone()
+
         # ---------------------------------------------------------------------
-        # TODO: 2.
+        # DONE: 2.
         #   a. READ the above specification, including the Example.
         #        ** ASK QUESTIONS AS NEEDED. **
         #        ** Be sure you understand it, ESPECIALLY the Example.
@@ -177,8 +181,17 @@ class Triangle(object):
         Type hints:
           :rtype: float
         """
+
+        a_dist = Point.distance_from(self.a, self.b)
+        b_dist = Point.distance_from(self.b, self.c)
+        c_dist = Point.distance_from(self.c, self.a)
+
+        side = 0.5*(a_dist + b_dist + c_dist)
+        area = math.sqrt(side * (side-a_dist) * (side-b_dist) * (side-c_dist))
+        return area
+
         # ---------------------------------------------------------------------
-        # TODO: 3.
+        # DONE: 3.
         #   a. READ the above specification, including the Example AND HINT!
         #        ** ASK QUESTIONS AS NEEDED. **
         #        ** Be sure you understand it, ESPECIALLY the Example.
@@ -200,6 +213,12 @@ class Triangle(object):
           :type: triangle2: Triangle
           :rtype: bool
         """
+
+        if triangle2.area() < self.area():
+            return True
+        else:
+            return False
+
         # ---------------------------------------------------------------------
         # TODO 4:
         #   a. READ the above specification, including the Example.
@@ -223,8 +242,17 @@ class Triangle(object):
          Type hints:
            :type: f: float
         """
+
+        self.a.x = self.a.x * f
+        self.b.x = self.b.x * f
+        self.c.x = self.c.x * f
+
+        self.a.y = self.a.y * f
+        self.b.y = self.b.y * f
+        self.c.y = self.c.y * f
+
         # ---------------------------------------------------------------------
-        # TODO 8:
+        # DONE 8:
         #   a. READ the above specification, including the Example.
         #        ** ASK QUESTIONS AS NEEDED. **
         #        ** Be sure you understand it, ESPECIALLY the Example.
@@ -246,8 +274,20 @@ class Triangle(object):
         Type hints:
           :rtype: Triangle:
         """
+
+        self.a.x = self.a.x * 2
+        self.b.x = self.b.x * 2
+        self.c.x = self.c.x * 2
+
+        self.a.y = self.a.y * 2
+        self.b.y = self.b.y * 2
+        self.c.y = self.c.y * 2
+
+        triangle = Triangle(self.a, self.b, self.c)
+        return triangle
+
         # -------------------------------------------------------------------------
-        # TODO: 9
+        # DONE: 9
         #   a. READ the above specification, including the Example.
         #        ** ASK QUESTIONS AS NEEDED. **
         #        ** Be sure you understand it, ESPECIALLY the Example.
@@ -270,6 +310,8 @@ class Triangle(object):
         Type hints:
           :rtype: Float:
         """
+
+
         # ---------------------------------------------------------------------
         # TODO: 9
         #   a. READ the above specification, including the Example.

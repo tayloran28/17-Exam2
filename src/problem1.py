@@ -13,9 +13,9 @@ import time
 def main():
     """ Calls the   TEST   functions in this module. """
     # run_test_problem1a()
-    # run_test_problem1b()
-    run_test_problem1c()
-    run_test_problem1d()
+    run_test_problem1b()
+    # run_test_problem1c()
+    # run_test_problem1d()
 
 
 ###############################################################################
@@ -300,10 +300,11 @@ def problem1b(strings):
            FOR HELP if this problem's specification is not clear to you.
      """
 
-
+    duh = []
     for k in range(len(strings)):
-        if is_prime(len(strings)-1) == True:
-            return is_prime(strings)
+        if len(strings) == is_prime(len(strings)):
+            duh = duh + strings[k]
+        return duh
 
     ###########################################################################
     # TODO: 4. Implement and test this function.
