@@ -3,8 +3,8 @@ Exam 2, problem 1.
 
 Authors: David Mutchler, Vibha Alangar, Matt Boutell, Dave Fisher,
          Mark Hays, Amanda Stouder, Aaron Wilkin, their colleagues,
-         and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         and Alyssa Taylor.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 import testing_helper
 import time
@@ -14,12 +14,12 @@ def main():
     """ Calls the   TEST   functions in this module. """
     # run_test_problem1a()
     # run_test_problem1b()
-    # run_test_problem1c()
-    # run_test_problem1d()
+    run_test_problem1c()
+    run_test_problem1d()
 
 
 ###############################################################################
-# TODO: 2.  READ the doc-strings for the  sum_of_digits  and  is_prime
+# DONE: 2.  READ the doc-strings for the  sum_of_digits  and  is_prime
 # functions defined below.  They are the same as you have seen before.
 # After you UNDERSTAND the doc-string (JUST the doc-string, NOT the code),
 # ASKING QUESTIONS AS NEEDED, change the above _TODO_ to DONE.
@@ -144,8 +144,15 @@ def problem1a(sequence):
       -- problem1a( [20, 20] )  returns 40.
       -- problem1a( (30, 1, 22, 8, 5) )  returns 35.
     """
+
+    start = sequence[0]
+    end = sequence[len(sequence) - 1]
+    for k in range(len(sequence)):
+        total = start + end
+    return total
+
     # -------------------------------------------------------------------------
-    # TODO: 3. Implement and test this function.
+    # DONE: 3. Implement and test this function.
     #          Tests have been written for you (above).
     # -------------------------------------------------------------------------
 
@@ -292,6 +299,12 @@ def problem1b(strings):
       -- See the test cases for more examples, or ASK YOUR INSTRUCTOR
            FOR HELP if this problem's specification is not clear to you.
      """
+
+
+    for k in range(len(strings)):
+        if is_prime(len(strings)-1) == True:
+            return is_prime(strings)
+
     ###########################################################################
     # TODO: 4. Implement and test this function.
     #          Tests have been written for you (above).
@@ -388,8 +401,14 @@ def problem1c(integers):
            since none of the three numbers are less than
            their respective indices (0, 1, and 2, respectively).
      """
+
+    for k in range(len(integers)):
+        if integers[k] < k:
+            return integers[k]
+    return 999
+
     ###########################################################################
-    # TODO: 4. Implement and test this function.
+    # DONE: 4. Implement and test this function.
     #          Tests have been written for you (above).
     ###########################################################################
 
@@ -522,6 +541,14 @@ def problem1d(t, sequence):
       -- See the test cases for more examples, or ASK YOUR INSTRUCTOR
            FOR HELP if this problem's specification is not clear to you.
      """
+
+    total = 0
+    for k in range(len(sequence)):
+        if k >= (len(sequence)) / 2:
+            if sum_of_digits(sequence[k] > t):
+                total = total + sequence[k]
+            return total
+
     ###########################################################################
     # TODO: 4. Implement and test this function.
     #          Tests have been written for you (above).
